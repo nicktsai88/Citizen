@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>公民學習 App - 總部大廳</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            /* 公民主題配色：法治藍配正義金 */
+            --primary: #1565c0;       /* 主色：法治藍 (理性、穩定) */
+            --primary-dark: #0d47a1;  /* 深藍色 */
+            --secondary: #ff8f00;     /* 次要色：正義金/琥珀色 (象徵警示與重點) */
+            --bg: #e3f2fd;            /* 背景：極淡的藍色 */
+            --card-bg: #ffffff;
+        }
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: var(--bg);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .header h1 {
+            color: var(--primary);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .header p {
+            color: #455a64; /* 藍灰色文字 */
+            font-size: 1.1em;
+            margin-bottom: 25px;
+        }
+
+        /* 返回總目錄按鈕樣式 - 保持醒目的紅粉色漸層 */
+        .home-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #ff4081 0%, #d81b60 100%);
+            color: white;
+            padding: 12px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 4px 15px rgba(216, 27, 96, 0.4);
+            transition: all 0.3s ease;
+            border: 2px solid white;
+        }
+        .home-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(216, 27, 96, 0.5);
+        }
+        
+        /* 網格佈局 */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        /* 卡片樣式 */
+        .app-card {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 25px;
+            text-decoration: none;
+            color: #333;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 5px solid var(--primary);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(21, 101, 192, 0.2); /* 藍色陰影 */
+        }
+
+        .card-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            background: #e1f5fe; /* 淡藍色圓圈 */
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #b3e5fc;
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--primary-dark);
+            min-height: 3em; /* 保持標題高度一致 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-desc {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .card-badge {
+            margin-top: auto; /* 讓 badge 貼底 */
+            padding: 6px 15px;
+            background: #fff8e1;
+            color: var(--secondary);
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+            border: 1px solid #ffe082;
+        }
+        
+        /* 鎖定狀態樣式 */
+        .card-locked {
+            filter: grayscale(0.9);
+            opacity: 0.75;
+            cursor: not-allowed;
+            pointer-events: none;
+            border-top-color: #9e9e9e;
+            background: #f5f5f5;
+        }
+        .card-locked .card-icon {
+            background: #eee;
+            border-color: #ddd;
+        }
+        .card-locked .card-title {
+            color: #616161;
+        }
+        .card-locked .card-badge {
+            background: #eeeeee;
+            color: #757575;
+            border-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>⚖️ 公民學習 App 總部</h1>
+        <p>探索民主社會的運作，認識法律與權利義務</p>
+        
+        <!-- 返回百寶箱按鈕 -->
+        <a href="https://nicktsai88.github.io/List/" class="home-btn">
+            🎁 返回快樂學習百寶箱
+        </a>
+    </div>
+
+    <div class="app-grid">
+        
+        <!-- 3-L5 地方政府 -->
+        <a href="Citizen3-L5.html" class="app-card">
+            <div class="card-icon">🏛️</div>
+            <div class="card-title">第3冊 L5<br>我國的地方政府</div>
+            <div class="card-desc">認識地方自治的架構，了解縣市政府與議會如何運作及分工。</div>
+            <div class="card-badge">開放中</div>
+        </a>
+
+        <!-- 3-L6 政治參與 -->
+        <a href="Citizen3-L6.html" class="app-card">
+            <div class="card-icon">🗳️</div>
+            <div class="card-title">第3冊 L6<br>民主社會的<br>政治參與及投票</div>
+            <div class="card-desc">探討選舉、罷免、公投與利益團體，培養公民參與的能力。</div>
+            <div class="card-badge">開放中</div>
+        </a>
+
+        <!-- 4-L1 法律與人權 -->
+        <a href="Citizen4-L1.html" class="app-card">
+            <div class="card-icon">⚖️</div>
+            <div class="card-title">第4冊 L1<br>法律與人權</div>
+            <div class="card-desc">法律的基本概念，認識憲法保障的權利與法治精神的重要性。</div>
+            <div class="card-badge">開放中</div>
+        </a>
+
+        <!-- 4-L2 民事規範 -->
+        <a href="Citizen4-L2.html" class="app-card">
+            <div class="card-icon">🤝</div>
+            <div class="card-title">第4冊 L2<br>生活中的民事規範</div>
+            <div class="card-desc">從契約、侵權行為到親屬繼承，了解規範私法關係的民法。</div>
+            <div class="card-badge">開放中</div>
+        </a>
+
+        <!-- 4-L3 犯罪與刑罰 (準備中) -->
+        <a href="Citizen4-L3.html" class="app-card card-locked">
+            <div class="card-icon">🚔</div>
+            <div class="card-title">第4冊 L3<br>犯罪與刑罰</div>
+            <div class="card-desc">認識刑法原則，了解什麼是犯罪行為以及刑罰的目的與種類。</div>
+            <div class="card-badge">準備中</div>
+        </a>
+
+        <!-- 4-L4 紛爭解決 (準備中) -->
+        <a href="Citizen4-L4.html" class="app-card card-locked">
+            <div class="card-icon">🔨</div>
+            <div class="card-title">第4冊 L4<br>民事與刑事<br>紛爭的解決</div>
+            <div class="card-desc">當權利受損時該怎麼辦？介紹調解、和解與法院訴訟程序。</div>
+            <div class="card-badge">準備中</div>
+        </a>
+
+        <!-- 4-L5 行政法 (準備中) -->
+        <a href="Citizen4-L5.html" class="app-card card-locked">
+            <div class="card-icon">📜</div>
+            <div class="card-title">第4冊 L5<br>行政法與行政救濟</div>
+            <div class="card-desc">政府依法行政的原則，以及人民如何透過訴願與訴訟爭取權益。</div>
+            <div class="card-badge">準備中</div>
+        </a>
+
+        <!-- 4-L6 兒少保障 (準備中) -->
+        <a href="Citizen4-L6.html" class="app-card card-locked">
+            <div class="card-icon">🛡️</div>
+            <div class="card-title">第4冊 L6<br>法律對兒少的<br>保障與規範</div>
+            <div class="card-desc">介紹少年事件處理法與相關福利法規，保護未成年的成長權益。</div>
+            <div class="card-badge">準備中</div>
+        </a>
+
+    </div>
+
+</body>
+</html>
